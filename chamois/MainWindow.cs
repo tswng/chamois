@@ -16,5 +16,16 @@ namespace chamois
         {
             InitializeComponent();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutDialog dialog = new AboutDialog();
+            DialogResult resuls = dialog.ShowDialog();
+        }
     }
 }
