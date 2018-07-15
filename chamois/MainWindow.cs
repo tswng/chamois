@@ -1,4 +1,5 @@
-﻿using System;
+﻿using chamois.uitest;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,12 @@ namespace chamois
         {
             AboutDialog dialog = new AboutDialog();
             DialogResult resuls = dialog.ShowDialog();
+        }
+
+        private void frmBaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new frmBase();
+            f.Show();
         }
     }
 }

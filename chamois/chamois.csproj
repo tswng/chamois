@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
     <BaseIntermediateOutputPath>..\build\cache-release</BaseIntermediateOutputPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>chamois.Chamois</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,6 +65,24 @@
     </Compile>
     <Compile Include="Chamois.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="uitest\frmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uitest\frmBase.Designer.cs">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uitest\frmDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uitest\frmDialog.Designer.cs">
+      <DependentUpon>frmDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uitest\frmSub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uitest\frmSub.Designer.cs">
+      <DependentUpon>frmSub.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +98,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="uitest\frmBase.resx">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uitest\frmDialog.resx">
+      <DependentUpon>frmDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uitest\frmSub.resx">
+      <DependentUpon>frmSub.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,5 +120,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
