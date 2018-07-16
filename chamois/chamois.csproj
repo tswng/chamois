@@ -90,6 +90,9 @@
     <Compile Include="uitest\frmSub.Designer.cs">
       <DependentUpon>frmSub.cs</DependentUpon>
     </Compile>
+    <Compile Include="uitest\tabControlExt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +107,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="uitest\frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
@@ -130,6 +134,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

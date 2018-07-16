@@ -34,10 +34,7 @@ namespace chamois.uitest
             if (File.Exists(path))
             {
                 connItems.Clear();
-                System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(List<connItem>));
-                System.IO.StreamReader file = new System.IO.StreamReader(path);
-                connItems = (List<connItem>)reader.Deserialize(file);
-                file.Close();
+                connItems = connItem.fn_getSavedConnections(path);
 
                 var connItemsList = connItems.OrderBy(c => c.connName).ToList();
 
@@ -53,10 +50,7 @@ namespace chamois.uitest
 
         private void fn_saveConfiguration()
         {
-            var writer = new System.Xml.Serialization.XmlSerializer(typeof(List<connItem>));
-            var wfile = new System.IO.StreamWriter(path);
-            writer.Serialize(wfile, connItems);
-            wfile.Close();
+            connItem.fn_saveAllConnections(connItems,path);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -121,6 +115,8 @@ namespace chamois.uitest
 
             fn_saveConfiguration();
             fn_loadConfiguration();
+
+            lstConnections.SelectedValue = newItem.connName.ToString();
         }
 
         private void btnNew_Click(object sender, EventArgs e)

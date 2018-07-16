@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace chamois.uitest
 {
@@ -17,57 +18,57 @@ namespace chamois.uitest
             InitializeComponent();
         }
 
-        
+        ExTabControl tabMaster = new ExTabControl();
+
+        string path = Path.GetDirectoryName(Application.ExecutablePath) + @"\config.xml";
+
         List<frmSub> SubForms = new List<frmSub>();
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var newConn = new frmDialog();
-            frmSub f = new frmSub();
-            f = newConn.fn_openDialog(SubForms);
-            if (f != null)
-            {
-                fn_addSubToStack(f);
-                fn_setActiveForm(f.Text);
-            }
-        }
-
-
-        private void fn_addSubToStack(frmSub f)
-        {
+            var f = new frmSub();
             f.TopLevel = false;
             f.TopMost = false;
 
-            pnlSub.Controls.Add(f);
+            var tab = new TabPage();
+            tab.Text = "Screen";
+            tab.Controls.Add(f);
+
+            tabMaster.TabPages.Add(tab);
 
             f.FormBorderStyle = FormBorderStyle.None;
             f.Dock = DockStyle.Fill;
 
-            SubForms.Add(f);
-            cboActiveConns.Items.Add(f.Text);
-            cboActiveConns.SelectedItem = f.Text;
+            f.Show();
+
+            //var newConn = new frmDialog();
+            //frmSub f = new frmSub();
+            //f = newConn.fn_openDialog(SubForms);
+            //if (f != null)
+            //{
+            //    fn_addSubToStack(f);
+            //    fn_setActiveForm(f.Text);
+            //}
         }
 
-        private void fn_setActiveForm(string frmName)
-        {
-            foreach (var item in SubForms)
-            {
-                if (item.Text == frmName)
-                    item.Show();
-                else
-                    item.Hide();
-            }
-        }
 
-        private void cboActiveConns_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            fn_setActiveForm(cboActiveConns.SelectedItem.ToString());
-        }
-
+        // Opens frmConnectionManager in dialog
         private void connectionManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var f = new frmConnectionManager();
             f.ShowDialog();
         }
+
+        private void frmBase_Load(object sender, EventArgs e)
+        {
+            
+            pnlSub.Controls.Add(tabMaster);
+            tabMaster.Dock = DockStyle.Fill;
+            tabMaster.ItemSize = new Size(250, 30);
+            
+
+        }
+
+
     }
 }
