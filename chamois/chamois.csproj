@@ -71,6 +71,12 @@
     <Compile Include="uitest\frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="uitest\frmConnectionManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uitest\frmConnectionManager.Designer.cs">
+      <DependentUpon>frmConnectionManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="uitest\frmDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </Compile>
     <EmbeddedResource Include="uitest\frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uitest\frmConnectionManager.resx">
+      <DependentUpon>frmConnectionManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uitest\frmDialog.resx">
       <DependentUpon>frmDialog.cs</DependentUpon>

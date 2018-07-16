@@ -63,5 +63,11 @@ namespace chamois.uitest
         {
             fn_setActiveForm(cboActiveConns.SelectedItem.ToString());
         }
+
+        private void connectionManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new frmConnectionManager();
+            f.ShowDialog();
+        }
     }
 }

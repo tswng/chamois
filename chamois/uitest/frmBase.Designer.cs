@@ -32,6 +32,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.cboActiveConns = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectionManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSub
@@ -47,7 +53,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(13, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -68,11 +74,51 @@
             // 
             this.cboActiveConns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboActiveConns.FormattingEnabled = true;
-            this.cboActiveConns.Location = new System.Drawing.Point(113, 13);
+            this.cboActiveConns.Location = new System.Drawing.Point(114, 43);
             this.cboActiveConns.Name = "cboActiveConns";
             this.cboActiveConns.Size = new System.Drawing.Size(206, 21);
             this.cboActiveConns.TabIndex = 2;
             this.cboActiveConns.SelectedIndexChanged += new System.EventHandler(this.cboActiveConns_SelectedIndexChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectionManagerToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // connectionManagerToolStripMenuItem
+            // 
+            this.connectionManagerToolStripMenuItem.Name = "connectionManagerToolStripMenuItem";
+            this.connectionManagerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.connectionManagerToolStripMenuItem.Text = "Connection Manager";
+            this.connectionManagerToolStripMenuItem.Click += new System.EventHandler(this.connectionManagerToolStripMenuItem_Click);
             // 
             // frmBase
             // 
@@ -83,9 +129,13 @@
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlSub);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmBase";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +147,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.ComboBox cboActiveConns;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem connectionManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
