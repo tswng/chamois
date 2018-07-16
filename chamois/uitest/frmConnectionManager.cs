@@ -14,7 +14,7 @@ namespace chamois.uitest
     public partial class frmConnectionManager : Form
     {
         List<connItem> connItems = new List<connItem>();
-        string path = Path.GetDirectoryName(Application.ExecutablePath) + @"\config.cfg";
+        string path = Path.GetDirectoryName(Application.ExecutablePath) + @"\config.xml";
 
 
         public frmConnectionManager()
@@ -25,6 +25,7 @@ namespace chamois.uitest
         private void frmConnectionManager_Load(object sender, EventArgs e)
         {
             fn_loadConfiguration();
+            cboDatabaseDriver.SelectedIndex = 0;
         }
 
 
@@ -32,62 +33,43 @@ namespace chamois.uitest
         {
             if (File.Exists(path))
             {
-                string indata = File.ReadAllText(path);
-                if (indata.Contains("%%%"))
-                {
-                    string[] lines = indata.Split(new string[] { "###" }, StringSplitOptions.None);
-                    //MessageBox.Show(lines[0]);
-                    if (lines.Count() > 0)
-                    {
-                        lstConnections.Items.Clear();
-                        foreach (var line in lines)
-                        {
-                            string[] singleConn = line.Split(new string[] { "%%%" }, StringSplitOptions.None);
-                            var item = new connItem();
-                            item.connName = singleConn[0];
-                            item.dbDriver = singleConn[1];
-                            item.Hostname = singleConn[2];
-                            item.Port = singleConn[3];
-                            item.Database = singleConn[4];
-                            item.Username = singleConn[5];
-                            item.Password = singleConn[6];
-                            item.savePassword = singleConn[7];
+                connItems.Clear();
+                System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(List<connItem>));
+                System.IO.StreamReader file = new System.IO.StreamReader(path);
+                connItems = (List<connItem>)reader.Deserialize(file);
+                file.Close();
 
-                            connItems.Add(item);
-                            lstConnections.Items.Add(item.connName);
-                        }
-                    }
-                }
+                var connItemsList = connItems.OrderBy(c => c.connName).ToList();
+
+                lstConnections.DataSource = null;
+                lstConnections.Items.Clear();
+
+                lstConnections.DisplayMember = "connName";
+                lstConnections.ValueMember = "connName";
+                lstConnections.DataSource = connItemsList;
             }
         }
 
 
         private void fn_saveConfiguration()
         {
-            string line = "";
-            foreach (var item in connItems)
-            {
-                line += item.connName + "%%%" + item.dbDriver + "%%%" + item.Hostname + "%%%" + item.Port + "%%%" + item.Database
-                     + "%%%" + item.Username + "%%%" + item.Password + "%%%" + item.savePassword + "###";
-            }
-
-            line = line.Substring(0, line.Length - 3);
-            File.Delete(path);
-            File.WriteAllText(path, line);
-
+            var writer = new System.Xml.Serialization.XmlSerializer(typeof(List<connItem>));
+            var wfile = new System.IO.StreamWriter(path);
+            writer.Serialize(wfile, connItems);
+            wfile.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void lstConnections_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstConnections.SelectedIndex > -1)
             {
-                string connectionName = lstConnections.SelectedItem.ToString();
-                var item = connItems.Where(c => c.connName == connectionName).First();
+                string connectionName = lstConnections.SelectedValue.ToString();
+                var item = connItems.Where(c => c.connName == connectionName).FirstOrDefault();
                 if (item != null)
                 {
                     txtConnName.Text = item.connName;
@@ -107,9 +89,9 @@ namespace chamois.uitest
 
         private void btnSaveConnction_Click(object sender, EventArgs e)
         {
-            if (txtConnName.Text == "" || txtDatabase.Text == ""|| txtHostname.Text == "" || txtPort.Text == "")
+            if (txtConnName.Text == "" || txtDatabase.Text == "" || txtHostname.Text == "" || txtPort.Text == "")
             {
-                MessageBox.Show("Enter Server information.");
+                MessageBox.Show("Enter Server information and Connection name.");
                 return;
             }
 
@@ -139,7 +121,6 @@ namespace chamois.uitest
 
             fn_saveConfiguration();
             fn_loadConfiguration();
-
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -153,17 +134,23 @@ namespace chamois.uitest
             chkSavePassword.Checked = false;
             txtConnName.Text = "";
         }
+
+        private void btnRemoveConnection_Click(object sender, EventArgs e)
+        {
+            if (lstConnections.SelectedIndex > -1)
+            {
+                string connectionName = lstConnections.SelectedValue.ToString();
+                var itemz = connItems.Where(c => c.connName == connectionName).ToList();
+
+                foreach (var item in itemz)
+                {
+                    connItems.Remove(item);
+                }
+
+                fn_saveConfiguration();
+                fn_loadConfiguration();
+            }
+        }
     }
 
-    public class connItem
-    {
-        public string connName { get; set; }
-        public string dbDriver { get; set; }
-        public string Hostname { get; set; }
-        public string Port { get; set; }
-        public string Database { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string savePassword { get; set; }
-    }
 }

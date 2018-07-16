@@ -51,6 +51,7 @@
             this.btnSaveConnction = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.btnRemoveConnection = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -67,10 +68,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnRemoveConnection);
             this.groupBox1.Controls.Add(this.lstConnections);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(271, 384);
+            this.groupBox1.Size = new System.Drawing.Size(271, 405);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Saved Connections";
@@ -144,6 +146,7 @@
             this.cboDatabaseDriver.Location = new System.Drawing.Point(113, 28);
             this.cboDatabaseDriver.Name = "cboDatabaseDriver";
             this.cboDatabaseDriver.Size = new System.Drawing.Size(222, 21);
+            this.cboDatabaseDriver.Sorted = true;
             this.cboDatabaseDriver.TabIndex = 2;
             // 
             // txtHostname
@@ -273,6 +276,16 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // btnRemoveConnection
+            // 
+            this.btnRemoveConnection.Location = new System.Drawing.Point(15, 376);
+            this.btnRemoveConnection.Name = "btnRemoveConnection";
+            this.btnRemoveConnection.Size = new System.Drawing.Size(72, 23);
+            this.btnRemoveConnection.TabIndex = 14;
+            this.btnRemoveConnection.Text = "Remove";
+            this.btnRemoveConnection.UseVisualStyleBackColor = true;
+            this.btnRemoveConnection.Click += new System.EventHandler(this.btnRemoveConnection_Click);
+            // 
             // frmConnectionManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,7 +324,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cboDatabaseDriver;
         private System.Windows.Forms.TextBox txtHostname;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -326,5 +338,7 @@
         private System.Windows.Forms.Button btnSaveConnction;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.ComboBox cboDatabaseDriver;
+        private System.Windows.Forms.Button btnRemoveConnection;
     }
 }
