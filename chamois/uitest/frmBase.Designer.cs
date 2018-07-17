@@ -28,29 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlSub = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlTest = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
+            this.pnlTest.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlSub
-            // 
-            this.pnlSub.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSub.BackColor = System.Drawing.Color.White;
-            this.pnlSub.Location = new System.Drawing.Point(12, 63);
-            this.pnlSub.Name = "pnlSub";
-            this.pnlSub.Size = new System.Drawing.Size(776, 356);
-            this.pnlSub.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -65,16 +55,6 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(200, 100);
             this.tabPage2.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "New screen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblMessage
             // 
@@ -125,14 +105,35 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
+            // pnlTest
+            // 
+            this.pnlTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlTest.Controls.Add(this.tabControl1);
+            this.pnlTest.Location = new System.Drawing.Point(0, 27);
+            this.pnlTest.Name = "pnlTest";
+            this.pnlTest.Size = new System.Drawing.Size(800, 424);
+            this.pnlTest.TabIndex = 4;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Location = new System.Drawing.Point(193, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(341, 163);
+            this.tabControl1.TabIndex = 0;
+            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
+            this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
+            // 
             // frmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pnlTest);
             this.Controls.Add(this.lblMessage);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pnlSub);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmBase";
@@ -141,15 +142,13 @@
             this.Load += new System.EventHandler(this.frmBase_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.pnlTest.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlSub;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -158,5 +157,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel pnlTest;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }
