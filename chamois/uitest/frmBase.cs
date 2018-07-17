@@ -18,57 +18,52 @@ namespace chamois.uitest
             InitializeComponent();
         }
 
+
+        // Custom TabControl class whit integrated close button on main TabPage button
         ExTabControl tabMaster = new ExTabControl();
 
+        // XML file location for reading and saving connections
         string path = Path.GetDirectoryName(Application.ExecutablePath) + @"\config.xml";
 
-        List<frmSub> SubForms = new List<frmSub>();
+        private void frmBase_Load(object sender, EventArgs e)
+        {
+            // add custom TabControl to panel and set it's dock propety to Fill
+            pnlSub.Controls.Add(tabMaster);
+            tabMaster.Dock = DockStyle.Fill;
+        }
 
+        // Experimental feature, button to put frmSub as tabPage to TabMaster control
         private void button1_Click(object sender, EventArgs e)
         {
+            // prepare form
             var f = new frmSub();
             f.TopLevel = false;
             f.TopMost = false;
-
-            var tab = new TabPage();
-            tab.Text = "Screen";
-            tab.Controls.Add(f);
-
-            tabMaster.TabPages.Add(tab);
-
             f.FormBorderStyle = FormBorderStyle.None;
             f.Dock = DockStyle.Fill;
 
-            f.Show();
+            // prepare tab
+            var tab = new TabPage();
+            tab.Text = "Screen        ";            
+            tab.BorderStyle = BorderStyle.FixedSingle;
 
-            //var newConn = new frmDialog();
-            //frmSub f = new frmSub();
-            //f = newConn.fn_openDialog(SubForms);
-            //if (f != null)
-            //{
-            //    fn_addSubToStack(f);
-            //    fn_setActiveForm(f.Text);
-            //}
+            // add form to tab
+            tab.Controls.Add(f);
+
+            // add tab to tabMaster control
+            tabMaster.TabPages.Add(tab);
+
+            // finally show form
+            f.Show();
         }
 
 
-        // Opens frmConnectionManager in dialog
+        // Opens frmConnectionManager in dialog, menu item
         private void connectionManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var f = new frmConnectionManager();
             f.ShowDialog();
         }
-
-        private void frmBase_Load(object sender, EventArgs e)
-        {
-            
-            pnlSub.Controls.Add(tabMaster);
-            tabMaster.Dock = DockStyle.Fill;
-            tabMaster.ItemSize = new Size(250, 30);
-            
-
-        }
-
 
     }
 }

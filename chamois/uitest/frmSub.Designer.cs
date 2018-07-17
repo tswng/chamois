@@ -32,13 +32,13 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.cboConnectionList = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,6 +90,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select Connection";
             // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "-- Select screen"});
+            this.comboBox2.Location = new System.Drawing.Point(14, 116);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(171, 21);
+            this.comboBox2.TabIndex = 4;
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(11, 88);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(95, 13);
+            this.linkLabel3.TabIndex = 3;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Save this screen...";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(11, 71);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(87, 13);
+            this.linkLabel2.TabIndex = 2;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Close this screen";
+            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -108,7 +139,6 @@
             this.cboConnectionList.Name = "cboConnectionList";
             this.cboConnectionList.Size = new System.Drawing.Size(171, 21);
             this.cboConnectionList.TabIndex = 0;
-            this.cboConnectionList.MouseEnter += new System.EventHandler(this.cboConnectionList_MouseEnter);
             // 
             // groupBox2
             // 
@@ -135,37 +165,6 @@
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Results";
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(11, 71);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(87, 13);
-            this.linkLabel2.TabIndex = 2;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Close this screen";
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(11, 88);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(95, 13);
-            this.linkLabel3.TabIndex = 3;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Save this screen...";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "-- Select screen"});
-            this.comboBox2.Location = new System.Drawing.Point(14, 116);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(171, 21);
-            this.comboBox2.TabIndex = 4;
             // 
             // frmSub
             // 

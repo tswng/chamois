@@ -18,13 +18,14 @@ namespace chamois.uitest
             InitializeComponent();
         }
 
-        string path = Path.GetDirectoryName(Application.ExecutablePath) + @"\config.xml";
+        string path = Path.GetDirectoryName(Application.ExecutablePath) + @"\config.xml"; // Path for storing and reading XML
 
         private void frmSub_Load(object sender, EventArgs e)
         {
             fn_cboConnectionsFill();
         }
 
+        // Prepare and fill combobox cboConnections with saved connections from XML file
         private void fn_cboConnectionsFill()
         {
             cboConnectionList.DataSource = null;
@@ -34,9 +35,6 @@ namespace chamois.uitest
             cboConnectionList.ValueMember = "connName";
         }
 
-        private void cboConnectionList_MouseEnter(object sender, EventArgs e)
-        {
-            fn_cboConnectionsFill();
-        }
+
     }
 }

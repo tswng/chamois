@@ -186,9 +186,9 @@ namespace chamois.uitest
 
         private void DrawCloseButton(Graphics graphics, Rectangle bounds)
         {
-            graphics.FillRectangle(Brushes.Red, bounds);
+            graphics.FillRectangle(Brushes.DarkRed, bounds);
             using (Font closeFont = new Font("Arial", Font.Size, FontStyle.Bold))
-                TextRenderer.DrawText(graphics, "X", closeFont, bounds, Color.White, Color.Red, TextFormatFlags.HorizontalCenter | TextFormatFlags.NoPadding | TextFormatFlags.SingleLine | TextFormatFlags.VerticalCenter);
+                TextRenderer.DrawText(graphics, "X", closeFont, bounds, Color.White, Color.DarkRed, TextFormatFlags.HorizontalCenter | TextFormatFlags.NoPadding | TextFormatFlags.SingleLine | TextFormatFlags.VerticalCenter);
 
         }
 

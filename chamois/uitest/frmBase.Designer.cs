@@ -46,7 +46,7 @@
             this.pnlSub.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSub.BackColor = System.Drawing.Color.Transparent;
+            this.pnlSub.BackColor = System.Drawing.Color.White;
             this.pnlSub.Location = new System.Drawing.Point(12, 63);
             this.pnlSub.Name = "pnlSub";
             this.pnlSub.Size = new System.Drawing.Size(776, 356);

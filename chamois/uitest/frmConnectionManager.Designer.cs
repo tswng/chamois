@@ -30,6 +30,7 @@
         {
             this.lstConnections = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRemoveConnection = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDatabase = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.btnSaveConnction = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.btnRemoveConnection = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -76,6 +76,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Saved Connections";
+            // 
+            // btnRemoveConnection
+            // 
+            this.btnRemoveConnection.Location = new System.Drawing.Point(15, 376);
+            this.btnRemoveConnection.Name = "btnRemoveConnection";
+            this.btnRemoveConnection.Size = new System.Drawing.Size(72, 23);
+            this.btnRemoveConnection.TabIndex = 14;
+            this.btnRemoveConnection.Text = "Remove";
+            this.btnRemoveConnection.UseVisualStyleBackColor = true;
+            this.btnRemoveConnection.Click += new System.EventHandler(this.btnRemoveConnection_Click);
             // 
             // groupBox2
             // 
@@ -140,9 +150,9 @@
             this.cboDatabaseDriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDatabaseDriver.FormattingEnabled = true;
             this.cboDatabaseDriver.Items.AddRange(new object[] {
-            "mssql",
-            "mysql",
-            "port"});
+            "MSSQL",
+            "mySQL",
+            "postgrSQL"});
             this.cboDatabaseDriver.Location = new System.Drawing.Point(113, 28);
             this.cboDatabaseDriver.Name = "cboDatabaseDriver";
             this.cboDatabaseDriver.Size = new System.Drawing.Size(222, 21);
@@ -229,6 +239,7 @@
             this.btnTestConnection.TabIndex = 10;
             this.btnTestConnection.Text = "Test Connection";
             this.btnTestConnection.UseVisualStyleBackColor = true;
+            this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
             // 
             // txtConnName
             // 
@@ -276,16 +287,6 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // btnRemoveConnection
-            // 
-            this.btnRemoveConnection.Location = new System.Drawing.Point(15, 376);
-            this.btnRemoveConnection.Name = "btnRemoveConnection";
-            this.btnRemoveConnection.Size = new System.Drawing.Size(72, 23);
-            this.btnRemoveConnection.TabIndex = 14;
-            this.btnRemoveConnection.Text = "Remove";
-            this.btnRemoveConnection.UseVisualStyleBackColor = true;
-            this.btnRemoveConnection.Click += new System.EventHandler(this.btnRemoveConnection_Click);
-            // 
             // frmConnectionManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,7 +303,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmConnectionManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Connection Manager";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frmConnectionManager_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
