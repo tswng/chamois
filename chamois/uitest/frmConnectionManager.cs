@@ -160,7 +160,7 @@ namespace chamois.uitest
         private void btnTestConnection_Click(object sender, EventArgs e)
         {
 
-            if (cboDatabaseDriver.SelectedItem.ToString() == "postgrSQL")
+            if (cboDatabaseDriver.SelectedItem.ToString() == "pgsql")
             {
                 string connString = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
                     txtHostname.Text, txtPort.Text, txtUsername.Text, txtPassword.Text, txtDatabase.Text);

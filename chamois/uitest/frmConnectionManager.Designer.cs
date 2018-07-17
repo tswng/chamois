@@ -150,9 +150,9 @@
             this.cboDatabaseDriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDatabaseDriver.FormattingEnabled = true;
             this.cboDatabaseDriver.Items.AddRange(new object[] {
-            "MSSQL",
-            "mySQL",
-            "postgrSQL"});
+            "mssql",
+            "mysql",
+            "pgsql"});
             this.cboDatabaseDriver.Location = new System.Drawing.Point(113, 28);
             this.cboDatabaseDriver.Name = "cboDatabaseDriver";
             this.cboDatabaseDriver.Size = new System.Drawing.Size(222, 21);

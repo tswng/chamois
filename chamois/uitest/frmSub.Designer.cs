@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.dgvResult = new System.Windows.Forms.DataGridView();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtQueryCmd = new System.Windows.Forms.RichTextBox();
+            this.btnExecuteSQL = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
@@ -50,31 +50,33 @@
             this.dgvResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResult.Location = new System.Drawing.Point(6, 35);
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.Size = new System.Drawing.Size(764, 228);
             this.dgvResult.TabIndex = 0;
             // 
-            // richTextBox1
+            // txtQueryCmd
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtQueryCmd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(442, 129);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.txtQueryCmd.Location = new System.Drawing.Point(6, 19);
+            this.txtQueryCmd.Name = "txtQueryCmd";
+            this.txtQueryCmd.Size = new System.Drawing.Size(442, 129);
+            this.txtQueryCmd.TabIndex = 1;
+            this.txtQueryCmd.Text = "";
             // 
-            // button1
+            // btnExecuteSQL
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(454, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 129);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "EXECUTE SQL";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnExecuteSQL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExecuteSQL.Location = new System.Drawing.Point(454, 19);
+            this.btnExecuteSQL.Name = "btnExecuteSQL";
+            this.btnExecuteSQL.Size = new System.Drawing.Size(110, 129);
+            this.btnExecuteSQL.TabIndex = 3;
+            this.btnExecuteSQL.Text = "EXECUTE SQL";
+            this.btnExecuteSQL.UseVisualStyleBackColor = true;
+            this.btnExecuteSQL.Click += new System.EventHandler(this.btnExecuteSQL_Click);
             // 
             // groupBox1
             // 
@@ -144,8 +146,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.richTextBox1);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.txtQueryCmd);
+            this.groupBox2.Controls.Add(this.btnExecuteSQL);
             this.groupBox2.Location = new System.Drawing.Point(218, 19);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(570, 154);
@@ -189,8 +191,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvResult;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox txtQueryCmd;
+        private System.Windows.Forms.Button btnExecuteSQL;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ComboBox cboConnectionList;

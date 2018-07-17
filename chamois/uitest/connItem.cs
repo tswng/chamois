@@ -45,6 +45,19 @@ namespace chamois.uitest
             writer.Serialize(wfile, itemz);
             wfile.Close();
         }
+
+        public static connItem fn_getConnectionByName(string connectionName, string path)
+        {
+            List<connItem> list = fn_getSavedConnections(path);
+            connItem item = (from i in list
+                            where i.connName == connectionName
+                            select i).FirstOrDefault();
+            if (item != null)
+                return item;
+            else
+                return null;
+        }
+
     }
 
 
