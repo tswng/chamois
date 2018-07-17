@@ -34,7 +34,5 @@ namespace chamois.uitest
             cboConnectionList.DisplayMember = "connName";
             cboConnectionList.ValueMember = "connName";
         }
-
-
     }
 }

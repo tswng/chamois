@@ -21,11 +21,21 @@ namespace chamois.uitest
         public static List<connItem> fn_getSavedConnections(string path)
         {
             var connectionItems = new List<connItem>();
-            System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(List<connItem>));
-            System.IO.StreamReader file = new System.IO.StreamReader(path);
-            connectionItems = (List<connItem>)reader.Deserialize(file);
-            file.Close();
-            return connectionItems.ToList();
+
+            try
+            {
+                System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(List<connItem>));
+                System.IO.StreamReader file = new System.IO.StreamReader(path);
+                connectionItems = (List<connItem>)reader.Deserialize(file);
+                file.Close();
+            }
+            catch (Exception)
+            {
+
+                connectionItems = null;
+            }
+
+            return connectionItems;
         }
 
         public static void fn_saveAllConnections(List<connItem> itemz, string path)
