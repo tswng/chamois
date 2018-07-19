@@ -46,6 +46,10 @@ namespace chamois.uitest
             tabControl1.Dock = DockStyle.Fill;
 
             tabControl1.TabPages.Add(new TabPage());
+
+
+            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.ItemSize = new Size(120, 32);
         }
 
         private void tabControl1_MouseDown(object sender, MouseEventArgs e)
@@ -82,7 +86,7 @@ namespace chamois.uitest
                     tabRect.Inflate(-2, -2);
                     var closeImage = Properties.Resources.closetab;
                     var imageRect = new Rectangle(
-                        (tabRect.Right - closeImage.Width),
+                        (tabRect.Right - closeImage.Width - 10),
                         tabRect.Top + (tabRect.Height - closeImage.Height) / 2,
                         closeImage.Width,
                         closeImage.Height);
@@ -99,22 +103,26 @@ namespace chamois.uitest
         {
             var tabPage = this.tabControl1.TabPages[e.Index];
             var tabRect = this.tabControl1.GetTabRect(e.Index);
+
             tabRect.Inflate(-2, -2);
             if (e.Index == this.tabControl1.TabCount - 1)
             {
                 var addImage = Properties.Resources.addtab;
+                e.Graphics.FillRectangle(Brushes.White, tabRect);
                 e.Graphics.DrawImage(addImage,
                     tabRect.Left + (tabRect.Width - addImage.Width) / 2,
                     tabRect.Top + (tabRect.Height - addImage.Height) / 2);
+
             }
             else
             {
+
                 var closeImage = Properties.Resources.closetab;
+                e.Graphics.FillRectangle(Brushes.Transparent, tabRect);
                 e.Graphics.DrawImage(closeImage,
-                    (tabRect.Right - closeImage.Width),
+                    (tabRect.Right - closeImage.Width - 10),
                     tabRect.Top + (tabRect.Height - closeImage.Height) / 2);
-                TextRenderer.DrawText(e.Graphics, tabPage.Text, tabPage.Font,
-                    tabRect, tabPage.ForeColor, TextFormatFlags.Left);
+                TextRenderer.DrawText(e.Graphics, tabPage.Text, tabPage.Font, new Point(tabRect.Left + 10, tabRect.Height / 2 - (int)tabPage.Font.SizeInPoints / 2), tabPage.ForeColor, TextFormatFlags.Left);
             }
         }
 

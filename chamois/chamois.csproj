@@ -141,5 +141,29 @@
   <ItemGroup>
     <None Include="Resources\addtab.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-can-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trashcan32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addtab2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
